@@ -2,9 +2,6 @@
 
 # Update apt
 sudo apt-get update
-# sudo apt-get -y upgrade
-
-#sudo apt-get install -y curl python-software-properties mysql-server
 
 # Set defaults
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password \"''\""
