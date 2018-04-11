@@ -20,13 +20,16 @@ echo -e "Done\n"
 
 # Install MySQL
 echo -e "Installing MySQL... "
-sudo apt-get install mysql-server-5.7 mysql-client emacs24-nox --assume-yes --force-yes
+sudo apt-get install mysql-server-5.7 mysql-client emacs24-nox -y -f
 echo -e "Done\n"
 
 # Add privileges
 echo -e "Granting permission to the host machine... "
 mysql -u root --password=$DEFAULTPASS -e "grant all privileges on *.* to 'root'@'%' identified by '$DEFAULTPASS' with grant option; flush privileges;"
-sudo cp /vagrant/mysql/mysqld.cnf /etc/mysql/mysql.conf.d/
+
+# Replace config
+sudo rm -rf /etc/mysql/mysql.conf.d/mysqld.cnf
+sudo ln -s /vagrant/mysql/mysql.conf.d/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 echo -e "Done\n"
 
 # Restart MySQL
