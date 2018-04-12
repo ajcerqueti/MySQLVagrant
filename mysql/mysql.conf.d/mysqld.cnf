@@ -36,8 +36,8 @@ basedir		= /usr
 datadir		= /var/lib/mysql
 tmpdir		= /tmp
 lc-messages-dir	= /usr/share/mysql
-skip-external-locking
-
+#skip-external-locking
+#
 # Instead of skip-networking the default is now to listen only on
 # localhost which is more compatible and is not less secure.
 bind-address		= 0.0.0.0
@@ -45,20 +45,18 @@ bind-address		= 0.0.0.0
 #
 # * Fine Tuning
 #
-key_buffer_size		= 256M
-max_allowed_packet	= 100M
+key_buffer_size		= 16M
+max_allowed_packet	= 16M
 thread_stack		= 192K
-thread_cache_size   = 8
-net_buffer_length   = 200M
-read_buffer_size    = 100M
+thread_cache_size       = 8
 
 # This replaces the startup script and checks MyISAM tables if needed
 # the first time they are touched
 myisam-recover-options  = BACKUP
-max_connections        = 100
-table_cache            = 64
-thread_concurrency     = 10
-
+#max_connections        = 100
+#table_cache            = 64
+#thread_concurrency     = 10
+#
 # * Query Cache Configuration
 #
 query_cache_limit	    = 2M
@@ -95,15 +93,14 @@ max_binlog_size   = 100M
 #
 # InnoDB is enabled by default with a 10MB datafile in /var/lib/mysql/.
 # Read the manual for more InnoDB related options. There are many!
-innodb_buffer_pool_size = 8G
-innodb_log_buffer_size = 256M
-innodb_log_file_size = 1G
-innodb_write_io_threads = 16
-innodb_flush_log_at_trx_commit = 0
+#
+#innodb_buffer_pool_size = 8G
+#innodb_log_buffer_size = 256M
+#innodb_log_file_size = 1G
+#innodb_write_io_threads = 16
+#innodb_flush_log_at_trx_commit = 0
 
 doublewrite = off
-#checksums   = none
-#P_S=off
 
 # * Security Features
 #
